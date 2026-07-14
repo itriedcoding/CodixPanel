@@ -1007,9 +1007,9 @@ export default function HomePage() {
 
       {/* Download */}
       <section id="download" className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-10" style={{ color: C.text }}>Download CodixOS</h2>
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid md:grid-cols-3 gap-5 mb-10">
             {[
               { ico: <Ico.HardDrive s={36} c="text-codix-blue" />, name: 'ISO Image', desc: 'Bootable ISO for VMs and live USB', size: '128 MB', href: 'https://github.com/itriedcoding/CodixOS/releases/download/v1.0.0/codixos-1.0.0.iso' },
               { ico: <Ico.Github s={36} c="text-codix-blue" />, name: 'Source Code', desc: 'Build from source', size: '15 MB', href: 'https://github.com/itriedcoding/CodixOS' },
@@ -1023,6 +1023,67 @@ export default function HomePage() {
                 <a href={d.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download</a>
               </div>
             ))}
+          </div>
+
+          <h2 className="text-xl font-bold mb-6" style={{ color: C.text }}>Run in a Virtual Machine</h2>
+          <div className="grid md:grid-cols-3 gap-5">
+            <div className="card">
+              <h3 className="text-sm font-semibold mb-3" style={{ color: C.blue }}>VirtualBox</h3>
+              <ol className="text-xs space-y-2" style={{ color: C.sub }}>
+                <li><span style={{ color: C.text }}>1.</span> Open VirtualBox and click <span style={{ color: C.text }}>New</span></li>
+                <li><span style={{ color: C.text }}>2.</span> Name: <span style={{ color: C.text }}>CodixOS</span>, Type: <span style={{ color: C.text }}>Other</span>, Version: <span style={{ color: C.text }}>Other/Unknown</span></li>
+                <li><span style={{ color: C.text }}>3.</span> Memory: <span style={{ color: C.text }}>512 MB</span> minimum, <span style={{ color: C.text }}>2048 MB</span> recommended</li>
+                <li><span style={{ color: C.text }}>4.</span> Create virtual hard disk: <span style={{ color: C.text }}>VDI</span>, <span style={{ color: C.text }}>Dynamically allocated</span>, <span style={{ color: C.text }}>2 GB</span></li>
+                <li><span style={{ color: C.text }}>5.</span> Settings &gt; Storage &gt; Controller: Click the <span style={{ color: C.text }}>CD icon</span> &gt; Choose <span style={{ color: C.text }}>codixos-1.0.0.iso</span></li>
+                <li><span style={{ color: C.text }}>6.</span> Settings &gt; System &gt; Boot Order: Check <span style={{ color: C.text }}>CD/DVD</span> first</li>
+                <li><span style={{ color: C.text }}>7.</span> Click <span style={{ color: C.text }}>Start</span> to boot CodixOS</li>
+              </ol>
+            </div>
+            <div className="card">
+              <h3 className="text-sm font-semibold mb-3" style={{ color: C.teal }}>Hyper-V</h3>
+              <ol className="text-xs space-y-2" style={{ color: C.sub }}>
+                <li><span style={{ color: C.text }}>1.</span> Open <span style={{ color: C.text }}>Hyper-V Manager</span></li>
+                <li><span style={{ color: C.text }}>2.</span> Click <span style={{ color: C.text }}>New</span> &gt; <span style={{ color: C.text }}>Virtual Machine</span></li>
+                <li><span style={{ color: C.text }}>3.</span> Name: <span style={{ color: C.text }}>CodixOS</span>, store in default location</li>
+                <li><span style={{ color: C.text }}>4.</span> Generation: <span style={{ color: C.text }}>Generation 1</span> (BIOS-based)</li>
+                <li><span style={{ color: C.text }}>5.</span> Memory: <span style={{ color: C.text }}>512 MB</span> (uncheck Dynamic Memory)</li>
+                <li><span style={{ color: C.text }}>6.</span> Network: <span style={{ color: C.text }}>Default Switch</span></li>
+                <li><span style={{ color: C.text }}>7.</span> Virtual hard disk: <span style={{ color: C.text }}>Create</span>, VHD, <span style={{ color: C.text }}>2 GB</span></li>
+                <li><span style={{ color: C.text }}>8.</span> Installation Options: <span style={{ color: C.text }}>Image file (.iso)</span> &gt; Browse to <span style={{ color: C.text }}>codixos-1.0.0.iso</span></li>
+                <li><span style={{ color: C.text }}>9.</span> Click <span style={{ color: C.text }}>Finish</span>, then <span style={{ color: C.text }}>Start</span></li>
+              </ol>
+            </div>
+            <div className="card">
+              <h3 className="text-sm font-semibold mb-3" style={{ color: C.green }}>QEMU (Command Line)</h3>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-xs mb-1" style={{ color: C.text }}>Install QEMU:</p>
+                  <div className="rounded p-2 text-[10px] font-mono" style={{ backgroundColor: C.bg, color: C.green, fontFamily: "'Courier New', monospace" }}>
+                    winget install SoftwareFreedomConservancy.QEMU
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs mb-1" style={{ color: C.text }}>Boot the ISO:</p>
+                  <div className="rounded p-2 text-[10px] font-mono" style={{ backgroundColor: C.bg, color: C.green, fontFamily: "'Courier New', monospace" }}>
+                    qemu-system-i386 \<br />
+                    &nbsp;&nbsp;-cdrom codixos-1.0.0.iso \<br />
+                    &nbsp;&nbsp;-m 512M \<br />
+                    &nbsp;&nbsp;-boot d \<br />
+                    &nbsp;&nbsp;-vga std
+                  </div>
+                </div>
+                <div>
+                  <p className="text-xs mb-1" style={{ color: C.text }}>With hard disk:</p>
+                  <div className="rounded p-2 text-[10px] font-mono" style={{ backgroundColor: C.bg, color: C.green, fontFamily: "'Courier New', monospace" }}>
+                    qemu-img create -f qcow2 codixos.qcow2 2G<br />
+                    qemu-system-i386 \<br />
+                    &nbsp;&nbsp;-cdrom codixos-1.0.0.iso \<br />
+                    &nbsp;&nbsp;-hda codixos.qcow2 \<br />
+                    &nbsp;&nbsp;-m 512M -boot d
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

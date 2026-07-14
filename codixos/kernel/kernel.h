@@ -74,4 +74,7 @@ uint32_t get_tick();
 void halt();
 void reboot();
 
+/* Kernel Entry */
+void kernel_main(uint32_t magic, void* mboot_info);
+
 #endif /* KERNEL_H */

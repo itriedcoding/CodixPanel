@@ -496,7 +496,7 @@ void cmd_about() {
 }
 
 /* Main kernel entry point */
-void kernel_main() {
+void kernel_main(uint32_t magic, void* mboot_info) {
     /* Initialize systems */
     clear_screen();
     init_interrupts();
