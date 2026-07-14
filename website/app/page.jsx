@@ -1,14 +1,13 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Terminal, 
   Download, 
   Github, 
   Cpu, 
   HardDrive, 
-  MemoryStick,
+  Activity,
   Monitor,
   Zap,
   Shield,
@@ -22,25 +21,29 @@ function TerminalDemo() {
   const [lines, setLines] = useState([])
   const [isTyping, setIsTyping] = useState(true)
 
-  const demoCommands = [
-    { input: 'neofetch', delay: 100 },
-    { input: 'ls -la', delay: 200 },
-    { input: 'pkg install vim', delay: 150 },
-    { input: 'free -h', delay: 100 },
-  ]
-
   useEffect(() => {
+    const demoCommands = [
+      { input: 'neofetch', delay: 100 },
+      { input: 'ls -la', delay: 200 },
+      { input: 'pkg install vim', delay: 150 },
+      { input: 'free -h', delay: 100 },
+    ]
+
     let lineIndex = 0
+    let timeoutId
+
     const addLine = () => {
       if (lineIndex < demoCommands.length) {
         setLines(prev => [...prev, `$ ${demoCommands[lineIndex].input}`])
         lineIndex++
-        setTimeout(addLine, demoCommands[lineIndex - 1].delay)
+        timeoutId = setTimeout(addLine, demoCommands[lineIndex - 1].delay)
       } else {
         setIsTyping(false)
       }
     }
-    setTimeout(addLine, 1000)
+
+    timeoutId = setTimeout(addLine, 1000)
+    return () => clearTimeout(timeoutId)
   }, [])
 
   return (
@@ -53,22 +56,22 @@ function TerminalDemo() {
       </div>
       <div className="terminal-body h-80 overflow-y-auto font-mono text-sm">
         <div className="text-codix-green mb-2">
-          {`        _____      _               ____   _____ `}
+          {'        _____      _               ____   _____ '}
         </div>
         <div className="text-codix-green mb-2">
-          {`       / ____|    | |             |  _ \\ / ____|`}
+          {'       / ____|    | |             |  _ \\ / ____|'}
         </div>
         <div className="text-codix-green mb-2">
-          {`      | |     ___ | | ___  _ __   | |_) | (___  `}
+          {'      | |     ___ | | ___  _ __   | |_) | (___  '}
         </div>
         <div className="text-codix-green mb-2">
-          {`      | |    / _ \\| |/ _ \\| '__|  |  _ < \\___ \\ `}
+          {'      | |    / _ \\| |/ _ \\| \'__|  |  _ < \\___ \\ '}
         </div>
         <div className="text-codix-green mb-2">
-          {`      | |___| (_) | | (_) | |     | |_) |____) |`}
+          {'      | |___| (_) | | (_) | |     | |_) |____) |'}
         </div>
         <div className="text-codix-green mb-4">
-          {`       \\_____\\___/|_|\\___/|_|     |____/|_____/ `}
+          {'       \\_____\\___/|_|\\___/|_|     |____/|_____/ '}
         </div>
         <div className="text-codix-subtext mb-4">
           Welcome to CodixOS v1.0.0 - Type help for commands
@@ -109,17 +112,13 @@ function TerminalDemo() {
 
 function FeatureCard({ icon: Icon, title, description }) {
   return (
-    <motion.div 
-      className="card group"
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-    >
+    <div className="card group hover:scale-[1.02] transition-transform duration-200">
       <div className="text-codix-blue mb-4 group-hover:text-codix-green transition-colors">
         <Icon size={32} />
       </div>
       <h3 className="text-xl font-semibold mb-2 text-codix-text">{title}</h3>
       <p className="text-codix-subtext">{description}</p>
-    </motion.div>
+    </div>
   )
 }
 
@@ -172,23 +171,16 @@ function Navbar() {
         </div>
       </div>
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div 
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-codix-surface border-t border-codix-overlay"
-          >
-            <div className="px-4 py-4 space-y-3">
-              <a href="#features" className="block text-codix-subtext hover:text-codix-blue">Features</a>
-              <a href="#demo" className="block text-codix-subtext hover:text-codix-blue">Demo</a>
-              <a href="#download" className="block text-codix-subtext hover:text-codix-blue">Download</a>
-              <a href="#download" className="block btn-primary text-center">Download</a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {isOpen && (
+        <div className="md:hidden bg-codix-surface border-t border-codix-overlay">
+          <div className="px-4 py-4 space-y-3">
+            <a href="#features" className="block text-codix-subtext hover:text-codix-blue" onClick={() => setIsOpen(false)}>Features</a>
+            <a href="#demo" className="block text-codix-subtext hover:text-codix-blue" onClick={() => setIsOpen(false)}>Demo</a>
+            <a href="#download" className="block text-codix-subtext hover:text-codix-blue" onClick={() => setIsOpen(false)}>Download</a>
+            <a href="#download" className="block btn-primary text-center" onClick={() => setIsOpen(false)}>Download</a>
+          </div>
+        </div>
+      )}
     </nav>
   )
 }
@@ -203,11 +195,7 @@ function Hero() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
+          <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="text-codix-blue">Codix</span>
               <span className="text-codix-text">OS</span>
@@ -215,14 +203,9 @@ function Hero() {
             <p className="text-xl md:text-2xl text-codix-subtext mb-8 max-w-2xl mx-auto">
               A lightweight, terminal-based operating system designed for simplicity and ease of use
             </p>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="flex flex-col sm:flex-row gap-4 justify-center"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-          >
+          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-delayed">
             <a href="#download" className="btn-primary flex items-center justify-center gap-2">
               <Download size={20} />
               Download Now
@@ -231,38 +214,24 @@ function Hero() {
               <Terminal size={20} />
               Live Demo
             </a>
-          </motion.div>
+          </div>
 
-          <motion.div 
-            className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-          >
+          <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 max-w-3xl mx-auto animate-fade-in-delayed-2">
             <StatCard icon={Cpu} label="CPU Usage" value="< 1%" color="text-codix-blue" />
-            <StatCard icon={MemoryStick} label="RAM Usage" value="32MB" color="text-codix-green" />
+            <StatCard icon={Activity} label="RAM Usage" value="32MB" color="text-codix-green" />
             <StatCard icon={HardDrive} label="Disk Size" value="128MB" color="text-codix-yellow" />
             <StatCard icon={Zap} label="Boot Time" value="2s" color="text-codix-red" />
-          </motion.div>
+          </div>
         </div>
 
-        <motion.div 
-          className="mt-16"
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
+        <div className="mt-16 animate-fade-in-delayed-3">
           <TerminalDemo />
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div 
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        animate={{ y: [0, 10, 0] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      >
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <ChevronDown className="text-codix-subtext" size={32} />
-      </motion.div>
+      </div>
     </section>
   )
 }
@@ -304,29 +273,18 @@ function Features() {
   return (
     <section id="features" className="py-20 bg-codix-surface/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-codix-text">Features</h2>
           <p className="text-codix-subtext max-w-2xl mx-auto">
             Everything you need in a modern operating system, without the bloat
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
+            <div key={i} className="animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
               <FeatureCard {...feature} />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -338,17 +296,12 @@ function Demo() {
   return (
     <section id="demo" className="py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-codix-text">See It In Action</h2>
           <p className="text-codix-subtext max-w-2xl mx-auto">
             Try CodixOS directly in your browser
           </p>
-        </motion.div>
+        </div>
 
         <TerminalDemo />
       </div>
@@ -358,42 +311,30 @@ function Demo() {
 
 function DownloadSection() {
   const downloads = [
-    { name: 'ISO Image', description: 'Bootable ISO for VMs and live USB', size: '128 MB', icon: HardDrive },
-    { name: 'Source Code', description: 'Build from source', size: '15 MB', icon: Github },
-    { name: 'Windows Installer', description: 'Install via WSL', size: '50 MB', icon: Monitor },
+    { name: 'ISO Image', description: 'Bootable ISO for VMs and live USB', size: '128 MB', icon: HardDrive, href: 'https://github.com/itriedcoding/CodixOS/releases' },
+    { name: 'Source Code', description: 'Build from source', size: '15 MB', icon: Github, href: 'https://github.com/itriedcoding/CodixOS' },
+    { name: 'Windows Installer', description: 'Install via WSL', size: '50 MB', icon: Monitor, href: 'https://github.com/itriedcoding/CodixOS' },
   ]
 
   return (
     <section id="download" className="py-20 bg-codix-surface/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <div className="text-center mb-16">
           <h2 className="text-4xl font-bold mb-4 text-codix-text">Download CodixOS</h2>
           <p className="text-codix-subtext max-w-2xl mx-auto">
             Choose the option that works best for you
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-3 gap-6">
           {downloads.map((dl, i) => (
-            <motion.div
-              key={i}
-              className="card text-center"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-            >
+            <div key={i} className="card text-center animate-fade-in-up" style={{ animationDelay: `${i * 0.1}s` }}>
               <dl.icon className="mx-auto text-codix-blue mb-4" size={48} />
               <h3 className="text-xl font-semibold mb-2 text-codix-text">{dl.name}</h3>
               <p className="text-codix-subtext mb-4">{dl.description}</p>
               <p className="text-codix-subtext text-sm mb-4">{dl.size}</p>
-              <button className="btn-primary w-full">Download</button>
-            </motion.div>
+              <a href={dl.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full inline-block text-center">Download</a>
+            </div>
           ))}
         </div>
       </div>
@@ -428,7 +369,7 @@ function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-codix-text">Community</h4>
             <ul className="space-y-2 text-codix-subtext text-sm">
-              <li><a href="https://github.com/itriedcoding/CodixOS" className="hover:text-codix-blue transition-colors">GitHub</a></li>
+              <li><a href="https://github.com/itriedcoding/CodixOS" target="_blank" rel="noopener noreferrer" className="hover:text-codix-blue transition-colors">GitHub</a></li>
               <li><a href="#" className="hover:text-codix-blue transition-colors">Discord</a></li>
               <li><a href="#" className="hover:text-codix-blue transition-colors">Forum</a></li>
             </ul>
