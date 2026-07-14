@@ -1007,52 +1007,22 @@ export default function HomePage() {
 
       {/* Download */}
       <section id="download" className="py-16 px-4">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-10" style={{ color: C.text }}>Download CodixOS</h2>
-          <div className="grid md:grid-cols-2 gap-5">
-            <div className="card">
-              <div className="flex items-center gap-3 mb-3">
-                <Ico.Settings s={36} c="text-codix-blue" />
-                <div>
-                  <h3 className="text-base font-semibold" style={{ color: C.text }}>ISO Builder</h3>
-                  <p className="text-xs" style={{ color: C.sub }}>Build the ISO from source</p>
-                </div>
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { ico: <Ico.HardDrive s={36} c="text-codix-blue" />, name: 'ISO Image', desc: 'Bootable ISO for VMs and live USB', size: '128 MB', href: 'https://github.com/itriedcoding/CodixOS/releases/download/v1.0.0/codixos-1.0.0.iso' },
+              { ico: <Ico.Github s={36} c="text-codix-blue" />, name: 'Source Code', desc: 'Build from source', size: '15 MB', href: 'https://github.com/itriedcoding/CodixOS' },
+              { ico: <Ico.Monitor s={36} c="text-codix-blue" />, name: 'WSL Installer', desc: 'Run inside Windows Subsystem for Linux', size: '50 MB', href: 'https://github.com/itriedcoding/CodixOS' },
+            ].map((d, i) => (
+              <div key={i} className="card text-center">
+                <div className="flex justify-center mb-3">{d.ico}</div>
+                <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>{d.name}</h3>
+                <p className="text-xs mb-1" style={{ color: C.sub }}>{d.desc}</p>
+                <p className="text-xs mb-3" style={{ color: C.overlay }}>{d.size}</p>
+                <a href={d.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download</a>
               </div>
-              <p className="text-sm mb-3" style={{ color: C.sub }}>Clone the repository and build your own bootable ISO image:</p>
-              <div className="rounded-lg p-3 mb-3 text-xs font-mono" style={{ backgroundColor: C.bg, color: C.green, fontFamily: "'Courier New', monospace" }}>
-                git clone https://github.com/itriedcoding/CodixOS.git<br />
-                cd CodixOS<br />
-                ./build-iso.sh
-              </div>
-              <p className="text-xs" style={{ color: C.overlay }}>Output: <span style={{ color: C.text }}>codixos-1.0.0.iso</span> (128 MB)</p>
-            </div>
-            <div className="card text-center">
-              <div className="flex justify-center mb-3">
-                <Ico.HardDrive s={36} c="text-codix-blue" />
-              </div>
-              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>ISO Download</h3>
-              <p className="text-xs mb-1" style={{ color: C.sub }}>Bootable ISO for VMs and live USB</p>
-              <p className="text-xs mb-3" style={{ color: C.overlay }}>128 MB</p>
-              <a href="https://github.com/itriedcoding/CodixOS/releases" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download from GitHub</a>
-            </div>
-            <div className="card text-center">
-              <div className="flex justify-center mb-3">
-                <Ico.Github s={36} c="text-codix-blue" />
-              </div>
-              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>Source Code</h3>
-              <p className="text-xs mb-1" style={{ color: C.sub }}>Browse or fork the full source</p>
-              <p className="text-xs mb-3" style={{ color: C.overlay }}>15 MB</p>
-              <a href="https://github.com/itriedcoding/CodixOS" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">View on GitHub</a>
-            </div>
-            <div className="card text-center">
-              <div className="flex justify-center mb-3">
-                <Ico.Monitor s={36} c="text-codix-blue" />
-              </div>
-              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>WSL Installer</h3>
-              <p className="text-xs mb-1" style={{ color: C.sub }}>Run inside Windows Subsystem for Linux</p>
-              <p className="text-xs mb-3" style={{ color: C.overlay }}>50 MB</p>
-              <a href="https://github.com/itriedcoding/CodixOS" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download</a>
-            </div>
+            ))}
           </div>
         </div>
       </section>
