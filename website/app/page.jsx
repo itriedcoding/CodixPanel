@@ -74,32 +74,32 @@ function processCommand(input, cwd) {
   let newCwd = cwd
   if (!cmd) return { output: '', newCwd }
   if (cmd === 'cd') { const t = args[0] ? resolvePath(args[0], cwd) : '~'; if (FILESYSTEM[t]?.type === 'dir') { newCwd = t; return { output: null, newCwd } }; return { output: `cd: ${args[0]}: No such directory`, newCwd } }
-  if (cmd === 'help') return { output: `Commands:\n  System:    help, clear, echo, exit, reboot, top, uptime, id, which, man\n  Files:     ls, cat, pwd, cd, mkdir, cp, mv, rm, touch\n  Info:      neofetch, whoami, hostname, uname, date\n  Resources: free, ps, df\n  Packages:  pkg install, pkg list, pkg update\n  Security:  secureboot, encrypt, auth, hardening, audit, sandbox, tls\n  Apps:      firefox, calculator, files, editor, settings, monitor\n  Theme:     theme, history`, newCwd }
+  if (cmd === 'help') return { output: 'Commands:\n  System:    help, clear, echo, exit, reboot, top, uptime, id, which, man\n  Files:     ls, cat, pwd, cd, mkdir, cp, mv, rm, touch\n  Info:      neofetch, whoami, hostname, uname, date\n  Resources: free, ps, df\n  Packages:  pkg install, pkg list, pkg update\n  Security:  secureboot, encrypt, auth, hardening, audit, sandbox, tls\n  Apps:      firefox, calculator, files, editor, settings, monitor\n  Theme:     theme, history', newCwd }
   const o = (text) => ({ output: text, newCwd })
   if (cmd === 'neofetch') return o(
-    `${C.blue}         ██████╗ ███████╗██╗  ██╗${C.text}   ${C.blue}codix${C.text}@${C.blue}codixos${C.text}\n` +
-    `${C.blue}        ██╔════╝ ██╔════╝╚██╗██╔╝${C.text}   ${C.teal}-------------------${C.text}\n` +
-    `${C.teal}        ██║  ███╗█████╗   ╚███╔╝ ${C.text}   ${C.blue}OS${C.text}:       CodixOS 1.0.0 x86_64\n` +
-    `${C.teal}        ██║   ██║██╔══╝   ██╔██╗ ${C.text}   ${C.blue}Host${C.text}:     CodixOS Virtual Machine\n` +
-    `${C.green}        ╚██████╔╝███████╗██╔╝ ██╗${C.text}   ${C.blue}Kernel${C.text}:   codix-kernel 1.0.0\n` +
-    `${C.green}         ╚═════╝ ╚══════╝╚═╝  ╚═╝${C.text}   ${C.blue}Uptime${C.text}:   4 hours, 23 mins\n` +
-    `${C.magenta}                              ${C.text}   ${C.blue}Packages${C.text}:  8 (codix-pkg)\n` +
-    `${C.magenta}       ${C.red}███${C.green}███${C.yellow}███${C.blue}███${C.magenta}███${C.teal}███${C.peach}███${C.text}   ${C.blue}Shell${C.text}:    codix-sh 1.0.0\n` +
-    `                              ${C.blue}DE${C.text}:      codix-desktop 1.0.0\n` +
-    `                              ${C.blue}WM${C.text}:      codix-wm (Wayland)\n` +
-    `                              ${C.blue}Terminal${C.text}: codix-term 1.0.0\n` +
-    `                              ${C.blue}CPU${C.text}:      Virtual CPU @ 2.4GHz\n` +
-    `                              ${C.blue}Memory${C.text}:   32MiB / 256MiB\n` +
-    `                              ${C.blue}Disk${C.text}:     128MB / 512MB (25%)\n` +
-    `                              ${C.blue}GPU${C.text}:      VirtIO GPU\n` +
-    `                              ${C.blue}Resolution${C.text}: 1920x1080\n` +
-    `                              ${C.blue}Theme${C.text}:    Catppuccin Mocha\n` +
-    `                              ${C.blue}Font${C.text}:     Ubuntu Mono 12pt\n` +
-    `                              ${C.blue}Security${C.text}: Secure Boot + LUKS2\n` +
+    `         ██████╗ ███████╗██╗  ██╗   codix@codixos\n` +
+    `        ██╔════╝ ██╔════╝╚██╗██╔╝   -------------------\n` +
+    `        ██║  ███╗█████╗   ╚███╔╝    OS:       CodixOS 1.0.0 x86_64\n` +
+    `        ██║   ██║██╔══╝   ██╔██╗    Host:     CodixOS Virtual Machine\n` +
+    `        ╚██████╔╝███████╗██╔╝ ██╗   Kernel:   codix-kernel 1.0.0\n` +
+    `         ╚═════╝ ╚══════╝╚═╝  ╚═╝   Uptime:   4 hours, 23 mins\n` +
+    `                                    Packages: 8 (codix-pkg)\n` +
+    `       ████████████████████████     Shell:    codix-sh 1.0.0\n` +
+    `                                    DE:       codix-desktop 1.0.0\n` +
+    `                                    WM:       codix-wm (Wayland)\n` +
+    `                                    Terminal: codix-term 1.0.0\n` +
+    `                                    CPU:      Virtual CPU @ 2.4GHz\n` +
+    `                                    Memory:   32MiB / 256MiB\n` +
+    `                                    Disk:     128MB / 512MB (25%)\n` +
+    `                                    GPU:      VirtIO GPU\n` +
+    `                                    Resolution: 1920x1080\n` +
+    `                                    Theme:    Catppuccin Mocha\n` +
+    `                                    Font:     Ubuntu Mono 12pt\n` +
+    `                                    Security: Secure Boot + LUKS2\n` +
     `\n` +
-    `  ${C.red}███${C.text}  ${C.peach}███${C.text}  ${C.yellow}███${C.text}  ${C.green}███${C.text}  ${C.teal}███${C.text}  ${C.blue}███${C.text}  ${C.magenta}███${C.text}`
+    `  Red    Blue   Green  Yellow Mauve  Teal   Peach`
   )
-  if (cmd === 'ls') { const t = args[0] ? resolvePath(args[0], cwd) : cwd; const e = FILESYSTEM[t]; if (!e) return o(`ls: cannot access '${args[0]}': No such file or directory`); if (e.type !== 'dir') return o(args[0]); return o(e.children.map(c => { const cp = t === '~' ? `~/${c}` : `${t}/${c}`; return FILESYSTEM[cp]?.type === 'dir' ? `${C.blue}${c}/${C.text}` : c }).join('  ')) }
+  if (cmd === 'ls') { const t = args[0] ? resolvePath(args[0], cwd) : cwd; const e = FILESYSTEM[t]; if (!e) return o(`ls: cannot access '${args[0]}': No such file or directory`); if (e.type !== 'dir') return o(args[0]); return o(e.children.map(c => { const cp = t === '~' ? `~/${c}` : `${t}/${c}`; return FILESYSTEM[cp]?.type === 'dir' ? `${c}/` : c }).join('  ')) }
   if (cmd === 'cat') { if (!args[0]) return o('cat: missing operand'); const p = resolvePath(args[0], cwd); const e = FILESYSTEM[p]; if (!e) return o(`cat: ${args[0]}: No such file`); if (e.type === 'dir') return o(`cat: ${args[0]}: Is a directory`); return o(e.content) }
   if (cmd === 'pwd') return o(cwd)
   if (cmd === 'whoami') return o('codix')
@@ -114,7 +114,7 @@ function processCommand(input, cwd) {
   if (cmd === 'clear') return o('__CLEAR__')
   if (cmd === 'reboot') return o('Rebooting system...')
   if (cmd === 'exit') return o('Nice try. This terminal has no escape.')
-  if (cmd === 'theme') return o(`Catppuccin Mocha Theme:\n  ${C.red}██${C.text} Red    #f38ba8\n  ${C.blue}██${C.text} Blue   #89b4fa\n  ${C.green}██${C.text} Green  #a6e3a1\n  ${C.yellow}██${C.text} Yellow #f9e2af\n  ${C.magenta}██${C.text} Mauve  #cba6f7\n  ${C.teal}██${C.text} Teal   #94e2d5\n  ${C.peach}██${C.text} Peach  #fab387`)
+  if (cmd === 'theme') return o('Catppuccin Mocha Theme:\n  █████ Red    #f38ba8\n  █████ Blue   #89b4fa\n  █████ Green  #a6e3a1\n  █████ Yellow #f9e2af\n  █████ Mauve  #cba6f7\n  █████ Teal   #94e2d5\n  █████ Peach  #fab387')
   if (cmd === 'pkg') { if (args[0] === 'list') return o('Installed packages:\n  codix-kernel    1.0.0\n  codix-sh        1.0.0\n  codix-term      1.0.0\n  codix-pkg       1.0.0\n  codix-desktop   1.0.0\n  firefox         120.0\n  codix-utils     1.0.0\n  codix-security  1.0.0'); if (args[0] === 'install') return o(`Installing ${args[1] || 'package'}...`); if (args[0] === 'update') return o('Updating package lists...'); return o('Usage: pkg <install|list|update>') }
   if (cmd === 'firefox') return o('Launching Firefox browser...\n[Firefox would open here]')
   if (cmd === 'calculator') return o('Launching Calculator...\n[Calculator would open here]')
@@ -122,13 +122,93 @@ function processCommand(input, cwd) {
   if (cmd === 'editor') return o('Launching Text Editor...\n[Text Editor would open here]')
   if (cmd === 'settings') return o('Launching Settings...\n[Settings would open here]')
   if (cmd === 'monitor') return o('Launching System Monitor...\n[CPU: 2% | RAM: 12% | Disk: 25%]')
-  if (cmd === 'secureboot') return o(`\n${C.teal}=== Secure Boot Status ===${C.text}\n\n  State:             ${C.green}ENABLED${C.text}\n  Trusted Keys:      1\n\n  ${C.teal}Boot Chain Verification:${C.text}\n    Firmware:        ${C.green}VERIFIED${C.text}\n    Bootloader:      ${C.green}VERIFIED${C.text}\n    Kernel:          ${C.green}VERIFIED${C.text}\n    Initrd:          ${C.green}VERIFIED${C.text}\n\n  Overall Status:    ${C.green}SECURE${C.text}\n`)
-  if (cmd === 'encrypt') return o(`\n${C.teal}=== Encrypted Devices ===${C.text}\n\n  DEVICE               MAPPER         CIPHER     KEY      STATUS\n  ------               ------         ------     ---      ------\n  /dev/sda2            codix-data     aes-xts    256      ${C.green}UNLOCKED${C.text}\n  /dev/sda3            -              aes-xts    256      ${C.yellow}LOCKED${C.text}\n`)
-  if (cmd === 'auth') return o(`\n${C.teal}=== Authentication Status ===${C.text}\n\n  Users:       3\n  Sessions:    2\n  MFA Required: Yes\n\n  Password Policy:\n    Min Length:      12\n    Complexity:      Upper + Lower + Digits + Symbols\n    Expiry Days:     90\n    Max Attempts:    5\n    Lockout (sec):   300\n`)
-  if (cmd === 'hardening') return o(`\n${C.teal}=== System Hardening Status ===${C.text}\n\n  Level:           ${C.green}HIGH${C.text}\n  Security Score:  ${C.green}92${C.text}/100\n\n  Components:\n    Firewall:      ${C.green}ENABLED${C.text}\n    SELinux:       ${C.green}ENABLED${C.text}\n    Audit:         ${C.green}ENABLED${C.text}\n    Ptrace Scope:  2\n    No New Privs:  Yes\n\n  Services:  8/17 enabled\n  Open Ports: 5 (22, 80, 443, 53, 123)\n  Blacklisted: 3 apps\n`)
-  if (cmd === 'audit') return o(`\n${C.teal}=== Audit System Status ===${C.text}\n\n  Enabled:         Yes\n  Console Output:  Yes\n  Level Filter:    WARNING\n\n  Total Events:    1,247\n  Security Events: 23\n  Failed Logins:   7\n  Rules:           8\n  Recipients:      2\n\n  Recent Events:\n    [06:42:15] LOGIN codix 127.0.0.1\n    [06:42:10] BOOT system started\n    [06:41:55] CONFIG hardening applied\n`)
-  if (cmd === 'sandbox') return o(`\n${C.teal}=== Sandboxes ===${C.text}\n\n  ID   NAME                 TYPE        STATUS     CAPS\n  ---  ----                 ----        ------     ----\n  1    web-browser          container   RUNNING    2\n  2    terminal-app         namespace   RUNNING    5\n  3    file-manager         chroot      STOPPED    0\n  4    text-editor          namespace   RUNNING    3\n\n  Active Namespaces: PID, NET, MNT\n  Resource Limits:   512MB RAM, 256 PIDs\n`)
-  if (cmd === 'tls') return o(`\n${C.teal}=== Data Protection Status ===${C.text}\n\n  Key Pairs:    2\n    - RSA-2048 (server)\n    - ECDSA-P256 (client)\n\n  Certificates: 3\n    - CN=codixos (self-signed)\n    - CN=*.codixos.local\n    - CN=root-ca (CA)\n\n  Connections:  4 active\n\n  TLS Configuration:\n    Min Version:   1.2\n    Max Version:   1.3\n    Cipher Suites: 7\n    Client Certs:  Optional\n    Hostname Vfy:  Enabled\n`)
+  if (cmd === 'secureboot') return o(
+    `\n=== Secure Boot Status ===\n\n` +
+    `  State:             ENABLED\n` +
+    `  Trusted Keys:      1\n\n` +
+    `  Boot Chain Verification:\n` +
+    `    Firmware:        VERIFIED\n` +
+    `    Bootloader:      VERIFIED\n` +
+    `    Kernel:          VERIFIED\n` +
+    `    Initrd:          VERIFIED\n\n` +
+    `  Overall Status:    SECURE\n`
+  )
+  if (cmd === 'encrypt') return o(
+    `\n=== Encrypted Devices ===\n\n` +
+    `  DEVICE               MAPPER         CIPHER     KEY      STATUS\n` +
+    `  ------               ------         ------     ---      ------\n` +
+    `  /dev/sda2            codix-data     aes-xts    256      UNLOCKED\n` +
+    `  /dev/sda3            -              aes-xts    256      LOCKED\n`
+  )
+  if (cmd === 'auth') return o(
+    `\n=== Authentication Status ===\n\n` +
+    `  Users:       3\n` +
+    `  Sessions:    2\n` +
+    `  MFA Required: Yes\n\n` +
+    `  Password Policy:\n` +
+    `    Min Length:      12\n` +
+    `    Complexity:      Upper + Lower + Digits + Symbols\n` +
+    `    Expiry Days:     90\n` +
+    `    Max Attempts:    5\n` +
+    `    Lockout (sec):   300\n`
+  )
+  if (cmd === 'hardening') return o(
+    `\n=== System Hardening Status ===\n\n` +
+    `  Level:           HIGH\n` +
+    `  Security Score:  92/100\n\n` +
+    `  Components:\n` +
+    `    Firewall:      ENABLED\n` +
+    `    SELinux:       ENABLED\n` +
+    `    Audit:         ENABLED\n` +
+    `    Ptrace Scope:  2\n` +
+    `    No New Privs:  Yes\n\n` +
+    `  Services:  8/17 enabled\n` +
+    `  Open Ports: 5 (22, 80, 443, 53, 123)\n` +
+    `  Blacklisted: 3 apps\n`
+  )
+  if (cmd === 'audit') return o(
+    `\n=== Audit System Status ===\n\n` +
+    `  Enabled:         Yes\n` +
+    `  Console Output:  Yes\n` +
+    `  Level Filter:    WARNING\n\n` +
+    `  Total Events:    1,247\n` +
+    `  Security Events: 23\n` +
+    `  Failed Logins:   7\n` +
+    `  Rules:           8\n` +
+    `  Recipients:      2\n\n` +
+    `  Recent Events:\n` +
+    `    [06:42:15] LOGIN codix 127.0.0.1\n` +
+    `    [06:42:10] BOOT system started\n` +
+    `    [06:41:55] CONFIG hardening applied\n`
+  )
+  if (cmd === 'sandbox') return o(
+    `\n=== Sandboxes ===\n\n` +
+    `  ID   NAME                 TYPE        STATUS     CAPS\n` +
+    `  ---  ----                 ----        ------     ----\n` +
+    `  1    web-browser          container   RUNNING    2\n` +
+    `  2    terminal-app         namespace   RUNNING    5\n` +
+    `  3    file-manager         chroot      STOPPED    0\n` +
+    `  4    text-editor          namespace   RUNNING    3\n\n` +
+    `  Active Namespaces: PID, NET, MNT\n` +
+    `  Resource Limits:   512MB RAM, 256 PIDs\n`
+  )
+  if (cmd === 'tls') return o(
+    `\n=== Data Protection Status ===\n\n` +
+    `  Key Pairs:    2\n` +
+    `    - RSA-2048 (server)\n` +
+    `    - ECDSA-P256 (client)\n\n` +
+    `  Certificates: 3\n` +
+    `    - CN=codixos (self-signed)\n` +
+    `    - CN=*.codixos.local\n` +
+    `    - CN=root-ca (CA)\n\n` +
+    `  Connections:  4 active\n\n` +
+    `  TLS Configuration:\n` +
+    `    Min Version:   1.2\n` +
+    `    Max Version:   1.3\n` +
+    `    Cipher Suites: 7\n` +
+    `    Client Certs:  Optional\n` +
+    `    Hostname Vfy:  Enabled\n`
+  )
   if (cmd === 'mkdir') return o(args[0] ? `Created directory: ${args[0]}` : 'mkdir: missing operand')
   if (cmd === 'touch') return o(args[0] ? `Created file: ${args[0]}` : 'touch: missing operand')
   if (cmd === 'cp') return o(args.length >= 2 ? `Copied ${args[0]} -> ${args[1]}` : 'cp: missing operand')
@@ -162,7 +242,7 @@ function BootSequence({ onComplete }) {
     { text: 'Starting desktop environment...', delay: 200 },
     { text: 'Loading applications...', delay: 150 },
     { text: '', delay: 100 },
-    { text: `${C.green}Welcome to CodixOS v1.0.0${C.text}`, delay: 200 },
+    { text: 'Welcome to CodixOS v1.0.0', delay: 200 },
   ]
 
   useEffect(() => {
@@ -927,22 +1007,52 @@ export default function HomePage() {
 
       {/* Download */}
       <section id="download" className="py-16 px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-10" style={{ color: C.text }}>Download CodixOS</h2>
-          <div className="grid md:grid-cols-3 gap-5">
-            {[
-              { ico: <Ico.HardDrive s={36} c="text-codix-blue" />, name: 'ISO Image', desc: 'Bootable ISO for VMs and live USB', size: '128 MB', href: 'https://github.com/itriedcoding/CodixOS' },
-              { ico: <Ico.Github s={36} c="text-codix-blue" />, name: 'Source Code', desc: 'Build from source', size: '15 MB', href: 'https://github.com/itriedcoding/CodixOS' },
-              { ico: <Ico.Monitor s={36} c="text-codix-blue" />, name: 'WSL Installer', desc: 'Run inside Windows Subsystem for Linux', size: '50 MB', href: 'https://github.com/itriedcoding/CodixOS' },
-            ].map((d, i) => (
-              <div key={i} className="card text-center">
-                <div className="flex justify-center mb-3">{d.ico}</div>
-                <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>{d.name}</h3>
-                <p className="text-xs mb-1" style={{ color: C.sub }}>{d.desc}</p>
-                <p className="text-xs mb-3" style={{ color: C.overlay }}>{d.size}</p>
-                <a href={d.href} target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download</a>
+          <div className="grid md:grid-cols-2 gap-5">
+            <div className="card">
+              <div className="flex items-center gap-3 mb-3">
+                <Ico.Settings s={36} c="text-codix-blue" />
+                <div>
+                  <h3 className="text-base font-semibold" style={{ color: C.text }}>ISO Builder</h3>
+                  <p className="text-xs" style={{ color: C.sub }}>Build the ISO from source</p>
+                </div>
               </div>
-            ))}
+              <p className="text-sm mb-3" style={{ color: C.sub }}>Clone the repository and build your own bootable ISO image:</p>
+              <div className="rounded-lg p-3 mb-3 text-xs font-mono" style={{ backgroundColor: C.bg, color: C.green, fontFamily: "'Courier New', monospace" }}>
+                git clone https://github.com/itriedcoding/CodixOS.git<br />
+                cd CodixOS<br />
+                ./build-iso.sh
+              </div>
+              <p className="text-xs" style={{ color: C.overlay }}>Output: <span style={{ color: C.text }}>codixos-1.0.0.iso</span> (128 MB)</p>
+            </div>
+            <div className="card text-center">
+              <div className="flex justify-center mb-3">
+                <Ico.HardDrive s={36} c="text-codix-blue" />
+              </div>
+              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>ISO Download</h3>
+              <p className="text-xs mb-1" style={{ color: C.sub }}>Bootable ISO for VMs and live USB</p>
+              <p className="text-xs mb-3" style={{ color: C.overlay }}>128 MB</p>
+              <a href="https://github.com/itriedcoding/CodixOS/releases" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download from GitHub</a>
+            </div>
+            <div className="card text-center">
+              <div className="flex justify-center mb-3">
+                <Ico.Github s={36} c="text-codix-blue" />
+              </div>
+              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>Source Code</h3>
+              <p className="text-xs mb-1" style={{ color: C.sub }}>Browse or fork the full source</p>
+              <p className="text-xs mb-3" style={{ color: C.overlay }}>15 MB</p>
+              <a href="https://github.com/itriedcoding/CodixOS" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">View on GitHub</a>
+            </div>
+            <div className="card text-center">
+              <div className="flex justify-center mb-3">
+                <Ico.Monitor s={36} c="text-codix-blue" />
+              </div>
+              <h3 className="text-base font-semibold mb-1" style={{ color: C.text }}>WSL Installer</h3>
+              <p className="text-xs mb-1" style={{ color: C.sub }}>Run inside Windows Subsystem for Linux</p>
+              <p className="text-xs mb-3" style={{ color: C.overlay }}>50 MB</p>
+              <a href="https://github.com/itriedcoding/CodixOS" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm py-2">Download</a>
+            </div>
           </div>
         </div>
       </section>
