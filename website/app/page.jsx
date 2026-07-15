@@ -36,31 +36,23 @@ const Ico = {
     </svg>
   ),
   Users: (p) => <Icon size={p.s || 24} className={p.c} d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />,
-  Cpu: (p) => <Icon size={p.s || 24} className={p.c} d="M4 4h16v16H4zM9 9h6v6H9zM9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 14h3M1 9h3M1 14h3" />,
-  Network: (p) => <Icon size={p.s || 24} className={p.c} d="M5 12.55a11 11 0 0114.08 0M1.42 9a16 16 0 0121.16 0M8.53 16.11a6 6 0 016.95 0M12 20h.01" />,
-  Settings: (p) => <Icon size={p.s || 24} className={p.c} d="M12 15a3 3 0 100-6 3 3 0 000 6zM19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 01-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z" />,
   Check: (p) => <Icon size={p.s || 24} className={p.c} d="M20 6L9 17l-5-5" />,
-  X: (p) => <Icon size={p.s || 24} className={p.c} d="M18 6L6 18M6 6l12 12" />,
   ArrowRight: (p) => <Icon size={p.s || 24} className={p.c} d="M5 12h14M12 5l7 7-7 7" />,
   Download: (p) => <Icon size={p.s || 24} className={p.c} d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />,
   Menu: (p) => <Icon size={p.s || 24} className={p.c} d="M3 12h18M3 6h18M3 18h18" />,
-  Globe: (p) => <Icon size={p.s || 24} className={p.c} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
-  Layers: (p) => <Icon size={p.s || 24} className={p.c} d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />,
-  Refresh: (p) => <Icon size={p.s || 24} className={p.c} d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" />,
-  Lock: (p) => <Icon size={p.s || 24} className={p.c} d="M19 11H5a2 2 0 00-2 2v7a2 2 0 002 2h14a2 2 0 002-2v-7a2 2 0 00-2-2zM7 11V7a5 5 0 0110 0v4" />,
-  Activity: (p) => <Icon size={p.s || 24} className={p.c} d="M22 12l-4 4-4-4M6 12l4-4 4 4" />,
+  X: (p) => <Icon size={p.s || 24} className={p.c} d="M18 6L6 18M6 6l12 12" />,
   Box: (p) => <Icon size={p.s || 24} className={p.c} d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />,
-  Copy: (p) => <Icon size={p.s || 24} className={p.c} d="M20 9h-7a2 2 0 00-2 2v7M16 2H4a2 2 0 00-2 2v12h16V9z" />,
-  ChevronDown: (p) => <Icon size={p.s || 24} className={p.c} d="M6 9l6 6 6-6" />,
+  Globe: (p) => <Icon size={p.s || 24} className={p.c} d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />,
+  ExternalLink: (p) => <Icon size={p.s || 24} className={p.c} d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />,
 }
 
 /* ── Code Block Component ─────────────────────────────── */
 
 function CodeBlock({ children, title }) {
   return (
-    <div className="rounded-xl overflow-hidden border border-border">
+    <div className="rounded-xl overflow-hidden border border-border shadow-sm">
       {title && (
-        <div className="flex items-center gap-2 px-4 py-2 bg-bg-card border-b border-border">
+        <div className="flex items-center gap-2 px-4 py-2 bg-bg-tertiary border-b border-border">
           <div className="flex gap-1.5">
             <div className="w-3 h-3 rounded-full bg-accent-red" />
             <div className="w-3 h-3 rounded-full bg-accent-yellow" />
@@ -70,7 +62,7 @@ function CodeBlock({ children, title }) {
         </div>
       )}
       <pre className="p-4 bg-bg-secondary overflow-x-auto">
-        <code className="text-sm font-mono text-accent-green leading-relaxed">{children}</code>
+        <code className="text-sm font-mono text-accent-blue leading-relaxed">{children}</code>
       </pre>
     </div>
   )
@@ -92,7 +84,7 @@ function CopyButton({ text }) {
       onClick={handleCopy}
       className="absolute top-3 right-3 p-2 rounded-lg bg-bg-tertiary hover:bg-border transition-colors text-text-secondary hover:text-text-primary"
     >
-      {copied ? <Ico.Check s={16} /> : <Ico.Copy s={16} />}
+      {copied ? <Ico.Check s={16} /> : <Icon size={16} className="text-current" d="M20 9h-7a2 2 0 00-2 2v7M16 2H4a2 2 0 00-2 2v12h16V9z" />}
     </button>
   )
 }
@@ -103,7 +95,7 @@ function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-bg-primary/90 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-3">
@@ -115,19 +107,18 @@ function Navbar() {
             </span>
           </div>
           <div className="hidden md:flex items-center gap-8">
-            <a href="#features" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Features</a>
-            <a href="#games" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Games</a>
-            <a href="#architecture" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Architecture</a>
-            <a href="#install" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Install</a>
-            <a href="#compare" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Compare</a>
-            <a href="#community" className="text-sm text-text-secondary hover:text-text-primary transition-colors">Community</a>
+            <a href="#features" className="text-sm text-text-secondary hover:text-accent-blue transition-colors">Features</a>
+            <a href="#games" className="text-sm text-text-secondary hover:text-accent-blue transition-colors">Games</a>
+            <a href="#architecture" className="text-sm text-text-secondary hover:text-accent-blue transition-colors">Architecture</a>
+            <a href="#install" className="text-sm text-text-secondary hover:text-accent-blue transition-colors">Install</a>
+            <a href="#compare" className="text-sm text-text-secondary hover:text-accent-blue transition-colors">Compare</a>
           </div>
           <div className="hidden md:flex items-center gap-4">
-            <a href="https://github.com/codix-panel/codix-panel" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-text-primary transition-colors">
+            <a href="https://github.com/itriedcoding/CodixPanel" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-text-primary transition-colors">
               <Ico.Github s={20} />
             </a>
-            <a href="https://discord.gg/codixpanel" target="_blank" rel="noopener noreferrer" className="px-4 py-2 rounded-lg bg-accent-blue text-bg-primary font-semibold text-sm hover:bg-accent-green transition-colors">
-              Get Started
+            <a href="#demo" className="px-4 py-2 rounded-lg bg-accent-blue text-white font-semibold text-sm hover:bg-accent-blue/90 transition-colors">
+              Live Demo
             </a>
           </div>
           <button className="md:hidden text-text-primary" onClick={() => setOpen(!open)}>
@@ -136,14 +127,14 @@ function Navbar() {
         </div>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border bg-bg-secondary px-4 py-4 space-y-3">
+        <div className="md:hidden border-t border-border bg-white px-4 py-4 space-y-3">
           <a href="#features" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Features</a>
           <a href="#games" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Games</a>
           <a href="#architecture" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Architecture</a>
           <a href="#install" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Install</a>
           <a href="#compare" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Compare</a>
-          <a href="#community" className="block text-sm text-text-secondary" onClick={() => setOpen(false)}>Community</a>
-          <a href="https://github.com/codix-panel/codix-panel" target="_blank" rel="noopener noreferrer" className="block text-sm text-text-secondary">GitHub</a>
+          <a href="#demo" className="block text-sm text-accent-blue font-medium" onClick={() => setOpen(false)}>Live Demo</a>
+          <a href="https://github.com/itriedcoding/CodixPanel" target="_blank" rel="noopener noreferrer" className="block text-sm text-text-secondary">GitHub</a>
         </div>
       )}
     </nav>
@@ -156,19 +147,19 @@ function Hero() {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 px-4">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent-blue/5 blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent-purple/5 blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent-blue/3 blur-3xl" />
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-accent-blue/10 blur-3xl" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-accent-sky/10 blur-3xl" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-accent-blue/5 blur-3xl" />
       </div>
       <div className="max-w-5xl mx-auto relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-sm mb-8">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-blue/10 border border-accent-blue/20 text-accent-blue text-sm mb-8 font-medium">
           <span className="w-2 h-2 rounded-full bg-accent-green animate-pulse" />
-          v1.0 Now Available
+          Open Source &amp; Free
         </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 tracking-tight leading-tight">
           <span className="text-text-primary">Open-Source</span>
           <br />
-          <span className="bg-gradient-to-r from-accent-blue via-accent-purple to-accent-pink bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r from-accent-blue via-accent-sky to-accent-blue bg-clip-text text-transparent">
             Game Server Management
           </span>
         </h1>
@@ -178,29 +169,83 @@ function Hero() {
           and a beautiful web interface.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <a href="#install" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent-blue text-bg-primary font-semibold rounded-xl hover:bg-accent-green transition-all duration-300 shadow-lg hover:shadow-accent-blue/20 text-base">
+          <a href="#demo" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent-blue text-white font-semibold rounded-xl hover:bg-accent-blue/90 transition-all duration-300 shadow-lg hover:shadow-accent-blue/20 text-base">
+            <Ico.Monitor s={20} />
+            Try Live Demo
+          </a>
+          <a href="#install" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent-blue text-accent-blue font-semibold rounded-xl hover:bg-accent-blue hover:text-white transition-all duration-300 text-base">
             <Ico.Download s={20} />
             Get Started
           </a>
-          <a href="https://github.com/codix-panel/codix-panel" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent-blue text-accent-blue font-semibold rounded-xl hover:bg-accent-blue hover:text-bg-primary transition-all duration-300 text-base">
-            <Ico.Github s={20} />
-            View Source
-          </a>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-          {[
-            { label: 'Active Servers', value: '10K+', icon: <Ico.Server s={20} className="text-accent-blue" /> },
-            { label: 'Uptime', value: '99.9%', icon: <Ico.Activity s={20} className="text-accent-green" /> },
-            { label: 'Response Time', value: '<50ms', icon: <Ico.Zap s={20} className="text-accent-yellow" /> },
-            { label: 'Contributors', value: '200+', icon: <Ico.Users s={20} className="text-accent-purple" /> },
-          ].map((stat) => (
-            <div key={stat.label} className="p-4 rounded-xl bg-bg-card/50 border border-border/50">
-              <div className="flex justify-center mb-2">{stat.icon}</div>
-              <div className="text-2xl font-bold text-text-primary">{stat.value}</div>
-              <div className="text-xs text-text-muted">{stat.label}</div>
+      </div>
+    </section>
+  )
+}
+
+/* ── Live Demo Section ────────────────────────────────── */
+
+function LiveDemo() {
+  return (
+    <section id="demo" className="py-24 px-4 bg-accent-blue/5">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
+            Live Demo
+          </h2>
+          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
+            Try Codix Panel right now. No installation required.
+            Register an account and explore the full dashboard.
+          </p>
+        </div>
+        <div className="rounded-2xl border border-accent-blue/20 bg-white shadow-xl overflow-hidden">
+          <div className="flex items-center gap-2 px-4 py-3 bg-bg-tertiary border-b border-border">
+            <div className="flex gap-1.5">
+              <div className="w-3 h-3 rounded-full bg-accent-red" />
+              <div className="w-3 h-3 rounded-full bg-accent-yellow" />
+              <div className="w-3 h-3 rounded-full bg-accent-green" />
             </div>
-          ))}
+            <div className="flex-1 mx-4">
+              <div className="flex items-center gap-2 px-3 py-1 bg-white rounded-lg border border-border text-xs text-text-muted font-mono">
+                <Ico.Globe s={14} className="text-accent-blue" />
+                panel.codixpanel.dev
+              </div>
+            </div>
+          </div>
+          <div className="relative bg-bg-secondary aspect-video flex items-center justify-center">
+            <div className="text-center p-8">
+              <div className="inline-flex items-center justify-center w-20 h-20 rounded-2xl bg-accent-blue/10 mb-6">
+                <Ico.Box s={40} className="text-accent-blue" />
+              </div>
+              <h3 className="text-2xl font-bold text-text-primary mb-3">Codix Panel Dashboard</h3>
+              <p className="text-text-secondary mb-6 max-w-md mx-auto">
+                Full-featured game server management panel with real-time console,
+                file manager, database management, and more.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                <a
+                  href="https://github.com/itriedcoding/CodixPanel"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent-blue text-white font-semibold rounded-xl hover:bg-accent-blue/90 transition-all duration-300"
+                >
+                  <Ico.Github s={18} />
+                  Deploy Your Own
+                </a>
+                <a
+                  href="#install"
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 border-2 border-accent-blue text-accent-blue font-semibold rounded-xl hover:bg-accent-blue hover:text-white transition-all duration-300"
+                >
+                  <Ico.ArrowRight s={18} />
+                  Installation Guide
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+        <p className="text-center text-sm text-text-muted mt-6">
+          Deploy the panel on your own server for full control. Docker and PostgreSQL required.
+        </p>
       </div>
     </section>
   )
@@ -264,16 +309,10 @@ function Features() {
       description: 'Real-time CPU, memory, disk, and network monitoring. Configurable alerts and resource usage history.',
       color: 'accent-blue',
     },
-    {
-      icon: <Ico.Package s={28} className="text-accent-green" />,
-      title: 'One-Click Mod Installs',
-      description: 'Curated mod repositories for supported games. Install Fabric, Forge, BepInEx, and more with a single click.',
-      color: 'accent-green',
-    },
   ]
 
   return (
-    <section id="features" className="py-24 px-4 bg-bg-secondary/50">
+    <section id="features" className="py-24 px-4 bg-bg-secondary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
@@ -288,9 +327,9 @@ function Features() {
           {features.map((feature, i) => (
             <div
               key={i}
-              className="group p-6 rounded-2xl bg-bg-card border border-border hover:border-accent-blue/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/5"
+              className="group p-6 rounded-2xl bg-white border border-border hover:border-accent-blue/50 transition-all duration-300 hover:shadow-lg hover:shadow-accent-blue/5"
             >
-              <div className={`inline-flex items-center justify-center w-14 h-14 rounded-xl bg-${feature.color}/10 mb-4 group-hover:scale-110 transition-transform`}>
+              <div className="inline-flex items-center justify-center w-14 h-14 rounded-xl bg-accent-blue/10 mb-4 group-hover:scale-110 transition-transform">
                 {feature.icon}
               </div>
               <h3 className="text-lg font-semibold text-text-primary mb-2">{feature.title}</h3>
@@ -333,7 +372,7 @@ function GameSupport() {
           {games.map((game, i) => (
             <div
               key={i}
-              className="group p-6 rounded-2xl bg-bg-card border border-border hover:border-accent-blue/50 transition-all duration-300 text-center cursor-pointer"
+              className="group p-6 rounded-2xl bg-white border border-border hover:border-accent-blue/50 transition-all duration-300 text-center cursor-pointer"
             >
               <div className={`inline-flex items-center justify-center w-16 h-16 rounded-xl ${game.color}/10 mb-4`}>
                 <span className={`text-2xl font-bold ${game.color}`}>{game.icon}</span>
@@ -355,7 +394,7 @@ function GameSupport() {
 
 function Architecture() {
   return (
-    <section id="architecture" className="py-24 px-4 bg-bg-secondary/50">
+    <section id="architecture" className="py-24 px-4 bg-bg-secondary">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
@@ -366,14 +405,14 @@ function Architecture() {
           </p>
         </div>
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          <div className="p-8 rounded-2xl bg-bg-card border border-border">
+          <div className="p-8 rounded-2xl bg-white border border-border">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-accent-blue/10">
                 <Ico.Box s={24} className="text-accent-blue" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-text-primary">Panel</h3>
-                <p className="text-sm text-text-muted">Web Application</p>
+                <p className="text-sm text-text-muted">Next.js + TypeScript + PostgreSQL</p>
               </div>
             </div>
             <ul className="space-y-3 text-sm text-text-secondary">
@@ -383,11 +422,11 @@ function Architecture() {
               </li>
               <li className="flex items-start gap-3">
                 <Ico.Check s={16} className="text-accent-green mt-0.5 shrink-0" />
-                <span>Database for servers, users, and configurations</span>
+                <span>Prisma ORM with PostgreSQL database</span>
               </li>
               <li className="flex items-start gap-3">
                 <Ico.Check s={16} className="text-accent-green mt-0.5 shrink-0" />
-                <span>REST API for external tools and integrations</span>
+                <span>JWT authentication and role-based access</span>
               </li>
               <li className="flex items-start gap-3">
                 <Ico.Check s={16} className="text-accent-green mt-0.5 shrink-0" />
@@ -395,18 +434,18 @@ function Architecture() {
               </li>
               <li className="flex items-start gap-3">
                 <Ico.Check s={16} className="text-accent-green mt-0.5 shrink-0" />
-                <span>Task queue for background jobs and cron</span>
+                <span>RESTful API for external tools and integrations</span>
               </li>
             </ul>
           </div>
-          <div className="p-8 rounded-2xl bg-bg-card border border-border">
+          <div className="p-8 rounded-2xl bg-white border border-border">
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-accent-purple/10">
                 <Ico.Server s={24} className="text-accent-purple" />
               </div>
               <div>
                 <h3 className="text-xl font-bold text-text-primary">Wings Daemon</h3>
-                <p className="text-sm text-text-muted">Node Agent</p>
+                <p className="text-sm text-text-muted">Node.js + Docker API</p>
               </div>
             </div>
             <ul className="space-y-3 text-sm text-text-secondary">
@@ -428,7 +467,7 @@ function Architecture() {
               </li>
               <li className="flex items-start gap-3">
                 <Ico.Check s={16} className="text-accent-green mt-0.5 shrink-0" />
-                <span>Lightweight Go binary, minimal dependencies</span>
+                <span>Lightweight Node.js process, minimal dependencies</span>
               </li>
             </ul>
           </div>
@@ -437,9 +476,9 @@ function Architecture() {
 {`Panel (Web UI)                    Wings Daemon
 +------------------+              +------------------+
 |                  |   HTTPS/WS   |                  |
-|  React + Next.js | <----------> |    Go Binary     |
-|  PostgreSQL      |              |    Docker API    |
-|  Redis           |              |    File System   |
+|  Next.js + TS    | <----------> |  Node.js + TS    |
+|  PostgreSQL      |              |  Docker API      |
+|  Prisma ORM      |              |  File System     |
 |                  |              |                  |
 +------------------+              +------------------+
      |                                    |
@@ -475,8 +514,8 @@ function Installation() {
             <h3 className="text-lg font-semibold text-text-primary mb-3">1. Clone the repository</h3>
             <div className="relative">
               <CodeBlock title="terminal">
-{`git clone https://github.com/codix-panel/codix-panel.git
-cd codix-panel`}
+{`git clone https://github.com/itriedcoding/CodixPanel.git
+cd CodixPanel`}
               </CodeBlock>
             </div>
           </div>
@@ -486,21 +525,13 @@ cd codix-panel`}
               <CodeBlock title=".env">
 {`# Panel Configuration
 APP_URL=https://panel.yourdomain.com
-APP_PORT=3000
+JWT_SECRET=your_random_secret_key
 
-# Database
-DB_HOST=database
-DB_PORT=5432
-DB_DATABASE=codix_panel
-DB_USERNAME=codix
-DB_PASSWORD=your_secure_password
+# Database (PostgreSQL)
+DATABASE_URL=postgresql://codix:password@localhost:5432/codix_panel
 
-# Cache
-REDIS_HOST=redis
-REDIS_PORT=6379
-
-# Wings Daemon Token (generated on first run)
-WINGS_TOKEN=`}
+# Docker
+DOCKER_HOST=/var/run/docker.sock`}
               </CodeBlock>
             </div>
           </div>
@@ -513,13 +544,21 @@ WINGS_TOKEN=`}
             </div>
           </div>
           <div>
-            <h3 className="text-lg font-semibold text-text-primary mb-3">4. Create admin account</h3>
+            <h3 className="text-lg font-semibold text-text-primary mb-3">4. Run database migrations</h3>
             <div className="relative">
               <CodeBlock title="terminal">
-{`docker compose exec panel php artisan codixpanel:make-user
-
-# Follow the prompts to create your first admin user
-# Then visit https://panel.yourdomain.com to log in`}
+{`docker compose exec panel npx prisma db push
+docker compose exec panel npx prisma generate`}
+              </CodeBlock>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-text-primary mb-3">5. Access the panel</h3>
+            <div className="relative">
+              <CodeBlock title="terminal">
+{`# Visit http://localhost:3000
+# Register your first account
+# The first user becomes admin`}
               </CodeBlock>
             </div>
           </div>
@@ -540,31 +579,31 @@ WINGS_TOKEN=`}
 
 function Comparison() {
   const features = [
-    { name: 'Tech Stack', codix: 'React, Go, PostgreSQL', ptero: 'PHP, MySQL' },
+    { name: 'Tech Stack', codix: 'Next.js, TypeScript, PostgreSQL', ptero: 'PHP, MySQL' },
     { name: 'Setup Complexity', codix: 'Single docker-compose', ptero: 'Multiple services + SSL config' },
     { name: 'Container Runtime', codix: 'Docker (built-in)', ptero: 'Docker (requires Wings)' },
     { name: 'Real-time Monitoring', codix: 'Built-in, no plugins', ptero: 'Requires Grafana setup' },
-    { name: 'API Performance', codix: 'Go-powered endpoints', ptero: 'PHP overhead' },
-    { name: 'Memory Usage', codix: '~128MB', ptero: '~512MB' },
+    { name: 'API Design', codix: 'RESTful + WebSocket', ptero: 'REST only' },
+    { name: 'Authentication', codix: 'JWT tokens', ptero: 'Session-based' },
     { name: 'Mod Install System', codix: 'One-click curated repos', ptero: 'Manual installation' },
     { name: 'Backup Options', codix: 'S3, GDrive, Local', ptero: 'S3, Local only' },
-    { name: 'User Interface', codix: 'Modern dark theme', ptero: 'Functional but dated' },
+    { name: 'User Interface', codix: 'Modern responsive design', ptero: 'Functional but dated' },
     { name: 'WebSocket Support', codix: 'Native, optimized', ptero: 'Basic implementation' },
   ]
 
   return (
-    <section id="compare" className="py-24 px-4 bg-bg-secondary/50">
+    <section id="compare" className="py-24 px-4 bg-bg-secondary">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
             Why Codix Panel?
           </h2>
           <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            A modern approach to game server management. Faster, lighter, and easier to use.
+            A modern approach to game server management. Built with current technologies and best practices.
           </p>
         </div>
-        <div className="rounded-2xl border border-border overflow-hidden">
-          <div className="grid grid-cols-3 bg-bg-card border-b border-border">
+        <div className="rounded-2xl border border-border overflow-hidden bg-white">
+          <div className="grid grid-cols-3 bg-bg-tertiary border-b border-border">
             <div className="p-4 text-sm font-semibold text-text-muted">Feature</div>
             <div className="p-4 text-sm font-semibold text-accent-blue text-center">Codix Panel</div>
             <div className="p-4 text-sm font-semibold text-text-muted text-center">Pterodactyl</div>
@@ -572,10 +611,10 @@ function Comparison() {
           {features.map((f, i) => (
             <div
               key={i}
-              className={`grid grid-cols-3 ${i % 2 === 0 ? 'bg-bg-primary' : 'bg-bg-secondary/30'} ${i < features.length - 1 ? 'border-b border-border/50' : ''}`}
+              className={`grid grid-cols-3 ${i % 2 === 0 ? 'bg-white' : 'bg-bg-secondary/50'} ${i < features.length - 1 ? 'border-b border-border/50' : ''}`}
             >
               <div className="p-4 text-sm text-text-primary">{f.name}</div>
-              <div className="p-4 text-sm text-accent-green text-center font-medium">{f.codix}</div>
+              <div className="p-4 text-sm text-accent-blue text-center font-medium">{f.codix}</div>
               <div className="p-4 text-sm text-text-secondary text-center">{f.ptero}</div>
             </div>
           ))}
@@ -599,12 +638,12 @@ function Community() {
             Open-source and community-driven. Report bugs, request features, or contribute code.
           </p>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <a
-            href="https://github.com/codix-panel/codix-panel"
+            href="https://github.com/itriedcoding/CodixPanel"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 rounded-2xl bg-bg-card border border-border hover:border-accent-blue/50 transition-all duration-300 text-center"
+            className="group p-8 rounded-2xl bg-white border border-border hover:border-accent-blue/50 transition-all duration-300 text-center"
           >
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-bg-tertiary mb-4 group-hover:scale-110 transition-transform">
               <Ico.Github s={32} className="text-text-primary" />
@@ -615,31 +654,17 @@ function Community() {
             </p>
           </a>
           <a
-            href="https://discord.gg/codixpanel"
+            href="https://github.com/itriedcoding/CodixPanel/issues"
             target="_blank"
             rel="noopener noreferrer"
-            className="group p-8 rounded-2xl bg-bg-card border border-border hover:border-accent-purple/50 transition-all duration-300 text-center"
+            className="group p-8 rounded-2xl bg-white border border-border hover:border-accent-blue/50 transition-all duration-300 text-center"
           >
             <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-bg-tertiary mb-4 group-hover:scale-110 transition-transform">
-              <Ico.Discord s={32} className="text-accent-purple" />
+              <Ico.Files s={32} className="text-accent-blue" />
             </div>
-            <h3 className="text-lg font-semibold text-text-primary mb-2">Discord</h3>
+            <h3 className="text-lg font-semibold text-text-primary mb-2">Issues</h3>
             <p className="text-sm text-text-secondary">
-              Get help, share setups, and chat with the community.
-            </p>
-          </a>
-          <a
-            href="https://docs.codixpanel.dev"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group p-8 rounded-2xl bg-bg-card border border-border hover:border-accent-green/50 transition-all duration-300 text-center"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-xl bg-bg-tertiary mb-4 group-hover:scale-110 transition-transform">
-              <Ico.Files s={32} className="text-accent-green" />
-            </div>
-            <h3 className="text-lg font-semibold text-text-primary mb-2">Documentation</h3>
-            <p className="text-sm text-text-secondary">
-              Comprehensive guides, tutorials, and API reference.
+              Report bugs, request features, and track development progress.
             </p>
           </a>
         </div>
@@ -679,7 +704,7 @@ function HowItWorks() {
   ]
 
   return (
-    <section className="py-24 px-4 bg-bg-secondary/50">
+    <section className="py-24 px-4 bg-bg-secondary">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
@@ -695,9 +720,9 @@ function HowItWorks() {
               {i < steps.length - 1 && (
                 <div className="hidden lg:block absolute top-12 left-full w-full h-px bg-gradient-to-r from-border to-transparent z-0" />
               )}
-              <div className="relative p-6 rounded-2xl bg-bg-card border border-border h-full">
+              <div className="relative p-6 rounded-2xl bg-white border border-border h-full">
                 <div className="flex items-center gap-3 mb-4">
-                  <span className="text-4xl font-extrabold text-bg-tertiary">{step.number}</span>
+                  <span className="text-4xl font-extrabold text-accent-blue/20">{step.number}</span>
                   {step.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-text-primary mb-2">{step.title}</h3>
@@ -711,101 +736,38 @@ function HowItWorks() {
   )
 }
 
-/* ── Performance Section ──────────────────────────────── */
-
-function Performance() {
-  return (
-    <section className="py-24 px-4">
-      <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
-            Built for Speed
-          </h2>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Every millisecond matters when players are connecting. Codix Panel is optimized for performance at every layer.
-          </p>
-        </div>
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="p-6 rounded-2xl bg-bg-card border border-border text-center">
-            <div className="text-4xl font-extrabold text-accent-blue mb-2">&lt;50ms</div>
-            <div className="text-sm text-text-secondary">API Response Time</div>
-            <div className="mt-3 w-full h-2 rounded-full bg-bg-tertiary overflow-hidden">
-              <div className="h-full w-[5%] rounded-full bg-accent-blue" />
-            </div>
-          </div>
-          <div className="p-6 rounded-2xl bg-bg-card border border-border text-center">
-            <div className="text-4xl font-extrabold text-accent-green mb-2">~128MB</div>
-            <div className="text-sm text-text-secondary">Panel Memory Usage</div>
-            <div className="mt-3 w-full h-2 rounded-full bg-bg-tertiary overflow-hidden">
-              <div className="h-full w-[15%] rounded-full bg-accent-green" />
-            </div>
-          </div>
-          <div className="p-6 rounded-2xl bg-bg-card border border-border text-center">
-            <div className="text-4xl font-extrabold text-accent-purple mb-2">1000+</div>
-            <div className="text-sm text-text-secondary">Servers Per Node</div>
-            <div className="mt-3 w-full h-2 rounded-full bg-bg-tertiary overflow-hidden">
-              <div className="h-full w-[85%] rounded-full bg-accent-purple" />
-            </div>
-          </div>
-        </div>
-        <CodeBlock title="benchmarks.txt">
-{`Performance Comparison (1000 concurrent requests):
-
-  Codix Panel (Go API)
-    Avg Response:   12ms
-    P99 Response:   45ms
-    Memory:         128MB
-    CPU:            2%
-
-  Pterodactyl (PHP)
-    Avg Response:   180ms
-    P99 Response:   520ms
-    Memory:         512MB
-    CPU:            8%
-
-  Codix Panel handles 15x more requests per second
-  with 4x less memory usage.`}
-        </CodeBlock>
-      </div>
-    </section>
-  )
-}
-
 /* ── Call to Action Section ───────────────────────────── */
 
 function CallToAction() {
   return (
-    <section className="py-24 px-4 bg-bg-secondary/50">
+    <section className="py-24 px-4 bg-accent-blue/5">
       <div className="max-w-4xl mx-auto text-center">
-        <div className="relative p-12 md:p-16 rounded-3xl bg-bg-card border border-border overflow-hidden">
+        <div className="relative p-12 md:p-16 rounded-3xl bg-white border border-accent-blue/20 overflow-hidden shadow-lg">
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-accent-blue/5 blur-3xl" />
-            <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-accent-purple/5 blur-3xl" />
+            <div className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-accent-blue/10 blur-3xl" />
+            <div className="absolute -bottom-20 -left-20 w-64 h-64 rounded-full bg-accent-sky/10 blur-3xl" />
           </div>
           <div className="relative z-10">
             <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
               Ready to Get Started?
             </h2>
             <p className="text-lg text-text-secondary max-w-xl mx-auto mb-8">
-              Join hundreds of game server operators who have switched to Codix Panel.
-              Free, open-source, and community-driven.
+              Deploy Codix Panel on your own server. Free, open-source, and community-driven.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="#install"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent-blue text-bg-primary font-semibold rounded-xl hover:bg-accent-green transition-all duration-300 shadow-lg hover:shadow-accent-blue/20"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-accent-blue text-white font-semibold rounded-xl hover:bg-accent-blue/90 transition-all duration-300 shadow-lg hover:shadow-accent-blue/20"
               >
                 <Ico.Download s={20} />
                 Deploy Now
               </a>
               <a
-                href="https://docs.codixpanel.dev"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent-blue text-accent-blue font-semibold rounded-xl hover:bg-accent-blue hover:text-bg-primary transition-all duration-300"
+                href="#demo"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3.5 border-2 border-accent-blue text-accent-blue font-semibold rounded-xl hover:bg-accent-blue hover:text-white transition-all duration-300"
               >
-                <Ico.Files s={20} />
-                Read the Docs
+                <Ico.Monitor s={20} />
+                Try Live Demo
               </a>
             </div>
           </div>
@@ -819,7 +781,7 @@ function CallToAction() {
 
 function Footer() {
   return (
-    <footer className="py-12 px-4 border-t border-border bg-bg-secondary/30">
+    <footer className="py-12 px-4 border-t border-border bg-bg-secondary">
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           <div>
@@ -836,39 +798,32 @@ function Footer() {
           <div>
             <h4 className="text-sm font-semibold text-text-primary mb-4">Product</h4>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li><a href="#features" className="hover:text-text-primary transition-colors">Features</a></li>
-              <li><a href="#games" className="hover:text-text-primary transition-colors">Supported Games</a></li>
-              <li><a href="#compare" className="hover:text-text-primary transition-colors">Comparison</a></li>
-              <li><a href="#install" className="hover:text-text-primary transition-colors">Installation</a></li>
+              <li><a href="#features" className="hover:text-accent-blue transition-colors">Features</a></li>
+              <li><a href="#games" className="hover:text-accent-blue transition-colors">Supported Games</a></li>
+              <li><a href="#compare" className="hover:text-accent-blue transition-colors">Comparison</a></li>
+              <li><a href="#install" className="hover:text-accent-blue transition-colors">Installation</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-sm font-semibold text-text-primary mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li><a href="https://docs.codixpanel.dev" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">Documentation</a></li>
-              <li><a href="https://docs.codixpanel.dev/api" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">API Reference</a></li>
-              <li><a href="https://github.com/codix-panel/codix-panel/releases" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">Changelog</a></li>
-              <li><a href="https://github.com/codix-panel/codix-panel/blob/main/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">License</a></li>
+              <li><a href="https://github.com/itriedcoding/CodixPanel" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">GitHub</a></li>
+              <li><a href="https://github.com/itriedcoding/CodixPanel/blob/master/LICENSE" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">License (MIT)</a></li>
             </ul>
           </div>
           <div>
             <h4 className="text-sm font-semibold text-text-primary mb-4">Community</h4>
             <ul className="space-y-2 text-sm text-text-secondary">
-              <li><a href="https://discord.gg/codixpanel" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">Discord</a></li>
-              <li><a href="https://github.com/codix-panel/codix-panel" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">GitHub</a></li>
-              <li><a href="https://github.com/codix-panel/codix-panel/issues" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">Report Issues</a></li>
-              <li><a href="https://github.com/codix-panel/codix-panel/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer" className="hover:text-text-primary transition-colors">Contribute</a></li>
+              <li><a href="https://github.com/itriedcoding/CodixPanel" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">GitHub</a></li>
+              <li><a href="https://github.com/itriedcoding/CodixPanel/issues" target="_blank" rel="noopener noreferrer" className="hover:text-accent-blue transition-colors">Report Issues</a></li>
             </ul>
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-border">
           <p className="text-sm text-text-muted">MIT License. Free and open-source forever.</p>
           <div className="flex items-center gap-4">
-            <a href="https://github.com/codix-panel/codix-panel" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text-primary transition-colors">
+            <a href="https://github.com/itriedcoding/CodixPanel" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-text-primary transition-colors">
               <Ico.Github s={20} />
-            </a>
-            <a href="https://discord.gg/codixpanel" target="_blank" rel="noopener noreferrer" className="text-text-muted hover:text-accent-purple transition-colors">
-              <Ico.Discord s={20} />
             </a>
           </div>
         </div>
@@ -881,15 +836,15 @@ function Footer() {
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-bg-primary">
+    <main className="min-h-screen bg-white">
       <Navbar />
       <Hero />
+      <LiveDemo />
       <Features />
       <GameSupport />
       <Architecture />
       <HowItWorks />
       <Installation />
-      <Performance />
       <Comparison />
       <Community />
       <CallToAction />
